@@ -1,4 +1,4 @@
-# Fraud Detection SQL Project
+# Fraud Detection Analysis and Trend Visualization SQL Project
 
 ### This repository contains SQL queries and data for analyzing insurance claim data to detect potential fraud. The project involves cleaning and transforming data, performing statistical analysis, and creating summary tables for visualization in Tableau. 
 
@@ -24,7 +24,7 @@ README.md: This file, providing an overview of the project, instructions, and ex
 To run the SQL scripts and analyze the data:
 
 Clone the Repository:
-git clone https://github.com/NayellyZurita/Fraud_detection-sql.git
+git clone https://github.com/NayellyZurita/fraud_detection_analysis_and_trend_visualization.sql.git
 cd fraud-detection-sql
 
 ## SQL Queries and Analysis
