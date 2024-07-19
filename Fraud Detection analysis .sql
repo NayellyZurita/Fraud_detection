@@ -43,13 +43,8 @@ SELECT TOP (1000)
 	  state
   FROM employee_data;
 
-  -- Data Cleaning 
-  --work with missing values 
-  --incident hour of the day
-  UPDATE insurance_data
-SET incident_hour_of_the_day = -1
-WHERE incident_hour_of_the_day IS NULL;
-
+  -- Data Cleaning
+  
 -- Check for missing values in `insurance_data` table
 SELECT * 
 FROM insurance_data 
@@ -160,7 +155,8 @@ SELECT
     customer_id, 
     claim_amount
 FROM insurance_data
-WHERE claim_amount > (SELECT AVG(claim_amount) + 3 * STDEV(claim_amount) FROM insurance_data);
+WHERE claim_amount > (SELECT AVG(claim_amount) + 3 * STDEV(claim_amount) FROM insurance_data)
+ORDER BY claim_amount DESC;
 
 --claim by agent
 
@@ -178,13 +174,42 @@ SELECT
 incident_state,
 incident_city,
 COUNT (*) AS claim_count
-FROM insurance_data
+FROM insurance_data 
 GROUP BY incident_state, incident_city;
 
---Average days to report a claim
+--High claim amount by agent ID and city 
+
 SELECT 
-    AVG(DATEDIFF(day, policy_eff_dt, report_dt)) AS avg_days_to_report
-FROM insurance_data;
+    agent_id, 
+    city, 
+    transaction_id, 
+    customer_id, 
+    policy_number,
+    insurance_type,
+    claim_amount
+FROM insurance_data
+WHERE claim_amount > (SELECT AVG(claim_amount) + 3 * STDEV(claim_amount) FROM insurance_data)
+ORDER BY claim_amount DESC, agent_id, city;
+
+--claims by insurance type and incident severity
+SELECT 
+    insurance_type, 
+    incident_severity, 
+    COUNT(*) AS claim_count
+FROM insurance_data
+GROUP BY insurance_type, incident_severity
+ORDER BY claim_count DESC;
+
+--claims by coustomer ID with high claim amounts
+SELECT 
+    customer_id, 
+    COUNT(*) AS claim_count, 
+    SUM(claim_amount) AS total_claim_amount
+FROM insurance_data
+WHERE claim_amount > (SELECT AVG(claim_amount) + 3 * STDEV(claim_amount) FROM insurance_data)
+GROUP BY customer_id
+ORDER BY total_claim_amount DESC;
+
 
 -- Create a new table to store summary data
 CREATE TABLE fraud_summary (
