@@ -14,7 +14,7 @@ Analyze trends and patterns in claim data to identify potential fraud indicators
 Create a summary table (fraud_summary) in Tableau for easy visualization and analysis.
 
 ## Repository Structure
-fraud_detection.sql: Main SQL script containing data cleaning, transformation, analysis queries, and creation of the fraud_summary table.
+fraud detection analysis.sql: Main SQL script containing data cleaning, transformation, analysis queries, and creation of the fraud_summary table.
 
 data/: Directory containing sample CSV files (insurance_data.csv, employee_data.csv) used in the analysis.
 
