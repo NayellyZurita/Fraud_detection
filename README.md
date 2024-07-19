@@ -24,7 +24,7 @@ README.md: This file, providing an overview of the project, instructions, and ex
 To run the SQL scripts and analyze the data:
 
 Clone the Repository:
-git clone https://github.com/your-username/fraud-detection-sql.git
+git clone https://github.com/nayellyzurita/fraud-detection-sql.git
 cd fraud-detection-sql
 
 ## SQL Queries and Analysis
