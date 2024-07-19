@@ -44,5 +44,8 @@ Creation of the fraud_summary table for summarized data storage.
 ## Example Visualization
 Above is an example visualization from Tableau showing trends in fraudulent claims.
 
+![TableauSQL](https://github.com/user-attachments/assets/807e59aa-9b90-4c07-ab58-776776784483)
+
+![TableauSQL1](https://github.com/user-attachments/assets/914b859c-778d-4038-9d52-c3654e604007)
 
 
